@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+N;CHARSET=UTF-8:Möbius;Joe;;;
+FN;CHARSET=UTF-8:Joe Möbius
+TITLE;CHARSET=UTF-8:Repräsentant der tecis Finanzdienstleistungen AG
+TEL;TYPE=CELL:01738428216
+EMAIL;TYPE=INTERNET:joe.moebius@tecis.de
+URL:https://www.tecis.de/
+ADR;TYPE=WORK;CHARSET=UTF-8:;;Kirchröder Str. 107;Hannover;;30625;Deutschland
+END:VCARD
