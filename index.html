@@ -1,98 +1,135 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Kontakt – Joe Möbius</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     body {
       margin: 0;
       padding: 24px;
       background: #f4f5f7;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   Roboto, Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: #111;
     }
 
     .card {
       max-width: 420px;
       margin: 0 auto;
-      background: #ffffff;
+      background: #fff;
       border-radius: 16px;
       padding: 24px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
     h1 {
-      font-size: 24px;
-      margin: 0 0 6px 0;
+      font-size: 26px;
+      margin: 0 0 8px 0;
+      letter-spacing: -0.2px;
     }
 
     .subtitle {
       font-size: 14px;
       color: #555;
-      margin-bottom: 24px;
-      line-height: 1.4;
+      margin: 0 0 18px 0;
+      line-height: 1.45;
     }
 
     .button {
       display: block;
       width: 100%;
       background: #0057b8;
-      color: #ffffff;
+      color: #fff;
       text-align: center;
-      padding: 14px;
-      border-radius: 10px;
+      padding: 14px 16px;
+      border-radius: 12px;
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 700;
       text-decoration: none;
-      margin: 20px 0 28px 0;
+      margin: 18px 0 22px 0;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: #6b6b6b;
+      margin-top: -14px;
+      margin-bottom: 18px;
+      text-align: center;
     }
 
     .info {
       font-size: 14px;
-      line-height: 1.6;
+      line-height: 1.65;
       color: #333;
+    }
+
+    .label {
+      color: #666;
     }
 
     .info a {
       color: #0057b8;
       text-decoration: none;
+      font-weight: 600;
+    }
+
+    .row {
+      margin: 10px 0;
+    }
+
+    .divider {
+      height: 1px;
+      background: #eee;
+      margin: 16px 0;
     }
   </style>
 </head>
 
 <body>
   <div class="card">
-
     <h1>Joe Möbius</h1>
 
     <div class="subtitle">
-      Beraterassistent<br>
-      Selbstständiger Repräsentant<br>
+      Beraterassistent<br />
+      Selbstständiger Repräsentant<br />
       tecis Finanzdienstleistungen AG
     </div>
 
-    <!-- ✅ EINDEUTIGER, KLICKBARER CTA -->
-    Joe_Moebius.vcf
-      📇 Kontakt speichern
+    <!-- KLICKBARER CTA -->
+    <a class="button" href="./Joe_Moebius.vcf" download="Joe_Moebius.vcf" rel="noopener">
+      Kontakt speichern
     </a>
+    <div class="hint">Tippen, um die Visitenkarte als Kontakt zu übernehmen</div>
 
     <div class="info">
-      Kirchröder Str. 107<br>
-      30625 Hannover<br><br>
+      <div class="row">
+        Kirchröder Str. 107<br />
+        30625 Hannover
+      </div>
 
-      Mobil:
-      tel:+4917384282160173&nbsp;8428216</a><br>
+      <div class="divider"></div>
 
-      Büro:
-      tel:+49511844084880511&nbsp;84408488</a><br><br>
+      <div class="row">
+        <span class="label">Mobil:</span>
+        <a href="tel:+491738428216">0173 8428216</a>
+      </div>
 
-      joe.moebius@tecis.dejoe.moebius@tecis.de</a><br>
-      https://www.tecis.dewww.tecis.de</a>
+      <div class="row">
+        <span class="label">Büro:</span>
+        <a href="tel:+4951184408488">0511 84408488</a>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="row">
+        <a href="mailto:joe.moebius@tecis.de">joe.moebius@tecis.de</a>
+      </div>
+
+      <div class="row">
+        <a href="https://www.tecis.de/" target="_blank" rel="noopener">www.tecis.de</a>
+      </div>
     </div>
-
   </div>
 </body>
 </html>
