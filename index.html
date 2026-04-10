@@ -5,130 +5,230 @@
   <title>Kontakt – Joe Möbius</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- tecis Typografie: DM Sans (Fließtext), Tinos (Headlines) -->
+  <!-- Beide sind laut CD als Google Fonts verfügbar; Office-Fallbacks: Arial / Times New Roman. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Tinos:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      margin: 0;
-      padding: 24px;
-      background: #f4f5f7;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: #111;
+    :root{
+      /* tecis Farben (CD) */
+      --tecis-blue:    #00325b;  /* Primärfarbe tecis Blau */   /* [1](https://slde-my.sharepoint.com/personal/joe_moebius_tecis_de/Documents/99%20Microsoft%20Ordner/Microsoft%20Copilot%20Chat-Dateien/tecis_Styleguide_Farben.pdf) */
+      --tecis-sky:     #009ee3;  /* tecis Himmelblau 100% */     /* [1](https://slde-my.sharepoint.com/personal/joe_moebius_tecis_de/Documents/99%20Microsoft%20Ordner/Microsoft%20Copilot%20Chat-Dateien/tecis_Styleguide_Farben.pdf) */
+      --tecis-lime:    #d3d800;  /* Sekundärfarbe Limette */      /* [1](https://slde-my.sharepoint.com/personal/joe_moebius_tecis_de/Documents/99%20Microsoft%20Ordner/Microsoft%20Copilot%20Chat-Dateien/tecis_Styleguide_Farben.pdf) */
+      --tecis-sand:    #cbcdb9;  /* Sekundärfarbe Sand */         /* [1](https://slde-my.sharepoint.com/personal/joe_moebius_tecis_de/Documents/99%20Microsoft%20Ordner/Microsoft%20Copilot%20Chat-Dateien/tecis_Styleguide_Farben.pdf) */
+      --black:         #000000;
+      --white:         #ffffff;
+
+      --text:          #0f1a22;
+      --muted:         #4b5a66;
+      --card:          #ffffff;
+
+      /* Rasterung nur bei Sekundärfarben (hier: Sand) */
+      --sand-15: rgba(203, 205, 185, 0.15); /* 15% Anmutung */
+      --sand-25: rgba(203, 205, 185, 0.25); /* leichte Steigerung */
     }
 
-    .card {
-      max-width: 420px;
+    *{ box-sizing: border-box; }
+
+    body{
+      margin:0;
+      padding:24px;
+      background:
+        radial-gradient(900px 520px at 12% 8%, var(--sand-25) 0%, rgba(203,205,185,0) 58%),
+        radial-gradient(900px 520px at 90% 22%, var(--sand-15) 0%, rgba(203,205,185,0) 62%),
+        #f4f5f7;
+      color: var(--text);
+
+      /* tecis Typografie: DM Sans als Hausschrift */
+      font-family: "DM Sans", Arial, sans-serif; /* [2](https://slde-my.sharepoint.com/personal/joe_moebius_tecis_de/Documents/99%20Microsoft%20Ordner/Microsoft%20Copilot%20Chat-Dateien/tecis_Styleguide_Typografie.pdf) */
+    }
+
+    .wrap{
+      max-width: 460px;
       margin: 0 auto;
-      background: #fff;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
-    h1 {
+    .card{
+      background: var(--card);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 12px 34px rgba(0,0,0,0.10);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    /* Header: Text links, Logo rechts */
+    .top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 16px;
+    }
+
+    h1{
+      margin: 0 0 6px 0;
       font-size: 26px;
-      margin: 0 0 8px 0;
       letter-spacing: -0.2px;
+
+      /* tecis Typografie: Tinos für Headlines */
+      font-family: "Tinos", "Times New Roman", Times, serif; /* [2](https://slde-my.sharepoint.com/personal/joe_moebius_tecis_de/Documents/99%20Microsoft%20Ordner/Microsoft%20Copilot%20Chat-Dateien/tecis_Styleguide_Typografie.pdf) */
+      font-weight: 700;
+      color: var(--tecis-blue);
     }
 
-    .subtitle {
+    .subtitle{
+      margin: 0;
       font-size: 14px;
-      color: #555;
-      margin: 0 0 18px 0;
       line-height: 1.45;
+      color: var(--muted);
+      font-weight: 400;
     }
 
-    .button {
-      display: block;
+    /* Logo: oben rechts, sauberer Abstand (Schutzzone beachten) */
+    .logo{
+      width: 92px;   /* bei Bedarf anpassen */
+      height: auto;
+      object-fit: contain;
+      margin-top: 2px;
+      flex: 0 0 auto;
+    }
+
+    /* CTA Button: zentriert & CI-Farbe */
+    .cta{
+      display:block;
       width: 100%;
-      background: #0057b8;
-      color: #fff;
-      text-align: center;
+      max-width: 320px;        /* „passend“ (nicht volle Kartenbreite) */
+      margin: 18px auto 10px auto;  /* Auto = perfekt zentriert */
       padding: 14px 16px;
       border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
       font-size: 16px;
       font-weight: 700;
-      text-decoration: none;
-      margin: 18px 0 22px 0;
+
+      background: var(--tecis-blue);
+      color: var(--white);
+      border: 2px solid var(--tecis-blue);
+
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .hint {
+    .cta:active{
+      transform: translateY(1px);
+    }
+
+    .cta:hover{
+      filter: brightness(1.03);
+    }
+
+    /* kleiner Hinweistext */
+    .hint{
       font-size: 12px;
-      color: #6b6b6b;
-      margin-top: -14px;
-      margin-bottom: 18px;
+      color: #667685;
       text-align: center;
+      margin: 0 0 18px 0;
     }
 
-    .info {
+    .info{
       font-size: 14px;
       line-height: 1.65;
-      color: #333;
+      color: #2d3b45;
     }
 
-    .label {
-      color: #666;
-    }
-
-    .info a {
-      color: #0057b8;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .row {
-      margin: 10px 0;
-    }
-
-    .divider {
+    .divider{
       height: 1px;
-      background: #eee;
-      margin: 16px 0;
+      background: rgba(0,0,0,0.08);
+      margin: 14px 0;
+    }
+
+    .row{
+      margin: 8px 0;
+    }
+
+    .label{
+      color: #5b6a75;
+      font-weight: 500;
+    }
+
+    .info a{
+      color: var(--tecis-blue);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    /* kleine Akzentlinie (Himmelblau in 100%) */
+    .accent{
+      height: 3px;
+      width: 56px;
+      background: var(--tecis-sky);
+      border-radius: 999px;
+      margin: 14px 0 0 0;
+    }
+
+    /* Mobile Feinheiten */
+    @media (max-width: 360px){
+      .logo{ width: 78px; }
+      h1{ font-size: 24px; }
+      .cta{ max-width: 100%; }
     }
   </style>
 </head>
 
 <body>
-  <div class="card">
-    <h1>Joe Möbius</h1>
+  <div class="wrap">
+    <div class="card">
 
-    <div class="subtitle">
-      Beraterassistent<br />
-      Selbstständiger Repräsentant<br />
-      tecis Finanzdienstleistungen AG
-    </div>
+      <div class="top">
+        <div>
+          <h1>Joe Möbius</h1>
+          <p class="subtitle">
+            Beraterassistent<br>
+            Selbstständiger Repräsentant<br>
+            tecis Finanzdienstleistungen AG
+          </p>
+          <div class="accent" aria-hidden="true"></div>
+        </div>
 
-    <!-- KLICKBARER CTA -->
-    <a class="button" href="./Joe_Moebius.vcf" download="Joe_Moebius.vcf" rel="noopener">
-      Kontakt speichern
-    </a>
-    <div class="hint">Tippen, um die Visitenkarte als Kontakt zu übernehmen</div>
-
-    <div class="info">
-      <div class="row">
-        Kirchröder Str. 107<br />
-        30625 Hannover
+        <!-- LOGO: Dateiname ggf. anpassen -->
+        <img class="logo"
+             src="tecis_Wort-Bild-Marke_Blau-Weiss_V2_sRGB.jpg"
+             alt="tecis Logo">
       </div>
 
-      <div class="divider"></div>
+      <!-- CTA: vCard (iOS öffnet Kontaktdialog nach Tipp) -->
+      <a class="cta" href="./Joe_Moebius.vcf">Kontakt speichern</a>
+      <div class="hint">Tippen, um die Visitenkarte als Kontakt zu übernehmen</div>
 
-      <div class="row">
-        <span class="label">Mobil:</span>
-        <a href="tel:+491738428216">0173 8428216</a>
+      <div class="info">
+        <div class="row">
+          Kirchröder Str. 107<br>
+          30625 Hannover
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="row">
+          <span class="label">Mobil:</span>
+          <a href="tel:+491738428216">0173 8428216</a>
+        </div>
+
+        <div class="row">
+          <span class="label">Büro:</span>
+          <a href="tel:+4951184408488">0511 84408488</a>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="row">
+          <a href="mailto:joe.moebius@tecis.de">joe.moebius@tecis.de</a>
+        </div>
+
+        <div class="row">
+          <a href="https://www.tecis.de/" target="_blank" rel="noopener">www.tecis.de</a>
+        </div>
       </div>
 
-      <div class="row">
-        <span class="label">Büro:</span>
-        <a href="tel:+4951184408488">0511 84408488</a>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="row">
-        <a href="mailto:joe.moebius@tecis.de">joe.moebius@tecis.de</a>
-      </div>
-
-      <div class="row">
-        <a href="https://www.tecis.de/" target="_blank" rel="noopener">www.tecis.de</a>
-      </div>
     </div>
   </div>
 </body>
