@@ -1,230 +1,220 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <title>Kontakt – Joe Möbius</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- DM Sans (CI-Hausschrift) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<title>Joe Möbius</title>
 
-  <style>
-    :root{
-      /* tecis Farben */
-      --tecis-blue: #00325b;
-      --tecis-sky:  #009ee3;
-      --tecis-sand: #cbcdb9;
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-      --white: #ffffff;
-      --text:  #0f1a22;
-      --muted: #4b5a66;
+<link href="https://fonts.googleapis.com/css2?family=DM+ot{
+  --tecis-blue:#00325b;
+  --tecis-sky:#009ee3;
+  --tecis-sand:#cbcdb9;
+  --white:#ffffff;
+  --text:#0f1a22;
+}
 
-      /* Sand als dezente „Anmutung“ (>= 15%) */
-      --sand-15: rgba(203,205,185,0.15);
-      --sand-25: rgba(203,205,185,0.25);
-    }
+*{
+  box-sizing:border-box;
+}
 
-    *{ box-sizing: border-box; }
+body{
+  margin:0;
+  padding:24px;
 
-    body{
-      margin:0;
-      padding:24px;
-      background:
-        radial-gradient(900px 520px at 12% 8%, var(--sand-25) 0%, rgba(203,205,185,0) 58%),
-        radial-gradient(900px 520px at 90% 22%, var(--sand-15) 0%, rgba(203,205,185,0) 62%),
-        #f4f5f7;
-      color: var(--text);
-      font-family: "DM Sans", Arial, sans-serif;
-    }
+  background:
+    radial-gradient(circle at top left,
+    rgba(203,205,185,.25),
+    transparent 50%),
 
-    .wrap{
-      max-width: 460px;
-      margin: 0 auto;
-    }
+    radial-gradient(circle at top right,
+    rgba(203,205,185,.15),
+    transparent 50%),
 
-    .card{
-      background: var(--white);
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: 0 12px 34px rgba(0,0,0,0.10);
-      border: 1px solid rgba(0,0,0,0.04);
-    }
+    #f4f5f7;
 
-    .top{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap: 16px;
-    }
+  font-family:"DM Sans",Arial,sans-serif;
+}
 
-    h1{
-      margin: 0 0 6px 0;
-      font-size: 26px;
-      line-height: 1.15;
-      letter-spacing: -0.2px;
+.wrap{
+  max-width:460px;
+  margin:auto;
+}
 
-      /* Option B: clean & ruhig */
-      font-weight: 600;
-      color: var(--tecis-blue);
+.card{
+  background:white;
+  border-radius:18px;
+  padding:24px;
+  box-shadow:0 12px 34px rgba(0,0,0,.10);
+}
 
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:16px;
+}
 
-    .subtitle{
-      margin: 0;
-      font-size: 14px;
-      line-height: 1.45;
-      color: var(--muted);
-      font-weight: 400;
-    }
+.logo{
+  width:95px;
+}
 
-    .accent{
-      height: 3px;
-      width: 56px;
-      background: var(--tecis-sky);
-      border-radius: 999px;
-      margin: 14px 0 0 0;
-    }
+h1{
+  margin:0 0 6px 0;
+  color:var(--tecis-blue);
+  font-size:26px;
+  font-weight:600;
+}
 
-    .logo{
-      width: 92px;
-      height: auto;
-      object-fit: contain;
-      margin-top: 2px;
-      flex: 0 0 auto;
-    }
+.subtitle{
+  color:#4b5a66;
+  line-height:1.45;
+  font-size:14px;
+}
 
-    .cta{
-      display:block;
-      width: 100%;
-      max-width: 320px;
-      margin: 18px auto 10px auto; /* zentriert */
-      padding: 14px 16px;
+.accent{
+  width:56px;
+  height:3px;
+  background:var(--tecis-sky);
+  border-radius:999px;
+  margin-top:14px;
+}
 
-      border-radius: 12px;
-      text-align: center;
-      text-decoration: none;
+.cta{
+  display:block;
 
-      font-size: 16px;
-      font-weight: 700;
+  width:100%;
+  max-width:320px;
 
-      background: var(--tecis-blue);
-      color: var(--white);
-      border: 2px solid var(--tecis-blue);
+  margin:18px auto;
 
-      -webkit-tap-highlight-color: transparent;
-      cursor: pointer;
-    }
+  padding:14px;
 
-    .cta:hover{ filter: brightness(1.03); }
-    .cta:active{ transform: translateY(1px); }
+  border-radius:12px;
 
-    .hint{
-      font-size: 12px;
-      color: #667685;
-      text-align: center;
-      margin: 0 0 18px 0;
-    }
+  background:var(--tecis-blue);
 
-    .info{
-      font-size: 14px;
-      line-height: 1.65;
-      color: #2d3b45;
-    }
+  color:white;
+  text-align:center;
+  text-decoration:none;
+  font-weight:700;
 
-    .divider{
-      height: 1px;
-      background: rgba(0,0,0,0.08);
-      margin: 14px 0;
-    }
+  transition:.2s;
+}
 
-    .row{ margin: 8px 0; }
+.cta:hover{
+  opacity:.95;
+}
 
-    .label{
-      color: #5b6a75;
-      font-weight: 500;
-    }
+.hint{
+  text-align:center;
+  color:#667685;
+  font-size:12px;
+  margin-top:-5px;
+  margin-bottom:20px;
+}
 
-    .info a{
-      color: var(--tecis-blue);
-      text-decoration: none;
-      font-weight: 700;
-    }
+.info{
+  color:#2d3b45;
+  line-height:1.7;
+}
 
-    @media (max-width: 360px){
-      .logo{ width: 78px; }
-      h1{ font-size: 24px; }
-      .cta{ max-width: 100%; }
-    }
-  </style>
+.divider{
+  height:1px;
+  background:#e6e6e6;
+  margin:16px 0;
+}
+
+.label{
+  color:#5b6a75;
+  font-weight:500;
+}
+
+.info a{
+  color:var(--tecis-blue);
+  text-decoration:none;
+  font-weight:700;
+}
+
+</style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="card">
 
-      <div class="top">
-        <div>
-          <h1>Joe Möbius</h1>
-          <p class="subtitle">
-            Juniorberater<br>
-            Selbstständiger Repräsentant<br>
-            tecis Finanzdienstleistungen AG
-          </p>
-          <div class="accent" aria-hidden="true"></div>
-        </div>
+<div class="wrap">
 
-        <!-- Logo-Datei muss im selben Ordner wie index.html liegen -->
-        <img class="logo"
-             src="tecis_Wort-Bild-Marke_Blau-Weiss_V2_sRGB.jpg"
-             alt="tecis Logo" />
-      </div>
+<div class="card">
 
-      <!-- CTA: vCard Download (iOS öffnet nach Tipp Kontakt-Import) -->
-      <a class="cta" href="./Joe_Moebius.vcf" download>Kontakt speichern</a>
-      <div class="hint">Tippen, um die Visitenkarte als Kontakt zu übernehmen</div>
-      <a class="cta"
-   href="https://outlook.office.com/bookwithme/user/ebffb44251e3459bb54446eb25fcfaca@tecis.de?anonymous&ismsaljsauthenabled&ep=plink"
-  
+<div class="top">
+
+<div>
+
+<h1>Joe Möbius</h1>
+
+<div class="subtitle">
+Juniorberater<br>
+Selbstständiger Repräsentant<br>
+tecis Finanzdienstleistungen AG
+</div>
+
+<div class="accent"></div>
+
+</div>
+
+tecis_Wort-Bild-Marke_Blau-Weiss_V2_sRGB.jpg
+
+</div>
+
+./Joe_Moebius.vcf
+
+<div class="hint">
+Tippen, um die Visitenkarte als Kontakt zu übernehmen
+</div>
+
+.office.com/bookwithme/user/ebffb44251e3459bb54446eb25fcfaca@tecis.de?anonymous&ismsaljsauthenabled&ep=plink"
+target="_blank"
 rel="noopener">
 Jetzt Zuversichtsberatung buchen
 </a>
 
-<a class="cta" href="./beweisemappe
+./beweisemappe.html
+Beweisemappe ansehen
+</a>
 
-      <div class="info">
-        <div class="row">
-          Kirchröder Str. 107<br>
-          30625 Hannover
-        </div>
+<div class="info">
 
-        <div class="divider"></div>
+<div>
+Kirchröder Str. 107<br>
+30625 Hannover
+</div>
 
-        <div class="row">
-          <span class="label">Mobil:</span>
-          <a href="tel:+491738428216">0173 8428216</a>
-        </div>
+<div class="divider"></div>
 
-        <div class="row">
-          <span class="label">Büro:</span>
-          <a href="tel:+4951184408488">0511 84408488</a>
-        </div>
+<div>
+<span class="label">Mobil:</span>
+491738428216">0173 8428216</a>
+</div>
 
-        <div class="divider"></div>
+<div>
+<span class="label">Büro:</span>
+tel:+49511844084880511 84408488</a>
+</div>
 
-        <div class="row">
-          <a href="mailto:joe.moebius@tecis.de">joe.moebius@tecis.de</a>
-        </div>
+<div class="divider"></div>
 
-        <div class="row">
-          <a href="https://www.tecis.de/" target="_blank" rel="noopener">www.tecis.de</a>
-        </div>
-      </div>
+<div>
+">
+joe.moebius@tecis.de
+</a>
+</div>
 
-    </div>
-  </div>
-</body>
-</html>
+<div>
+<a href="https://www.tecis.de" target="_blank" rel="noopener">
+www.tecis.de
+</a>
+</div>
+
+</div>
