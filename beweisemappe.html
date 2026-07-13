@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beweisemappe | Joe Möbius</title>
+
+  <!-- DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --tecis-blue: #00325b;
+      --tecis-sky: #009ee3;
+      --tecis-sand: #cbcdb9;
+      --white: #ffffff;
+      --text: #0f1a22;
+      --muted: #4b5a66;
+      --sand-15: rgba(203, 205, 185, 0.15);
+      --sand-25: rgba(203, 205, 185, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      background:
+        radial-gradient(900px 520px at 12% 8%, var(--sand-25) 0%, rgba(203,205,185,0) 58%),
+        radial-gradient(900px 520px at 90% 22%, var(--sand-15) 0%, rgba(203,205,185,0) 62%),
+        #f4f5f7;
+      color: var(--text);
+      font-family: "DM Sans", Arial, sans-serif;
+    }
+
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 12px 34px rgba(0,0,0,0.10);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 6px 0;
+      font-size: 30px;
+      line-height: 1.1;
+      letter-spacing: -0.3px;
+      font-weight: 600;
+      color: var(--tecis-blue);
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.45;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .accent {
+      width: 70px;
+      height: 4px;
+      background: var(--tecis-sky);
+      border-radius: 999px;
+      margin-top: 16px;
+    }
+
+    .logo {
+      width: 105px;
+      height: auto;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .viewer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 20px 0 14px 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .counter {
+      color: var(--tecis-blue);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .viewer {
+      width: 100%;
+      background: #f8f9fa;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 14px;
+      padding: 12px;
+      overflow: hidden;
+      touch-action: pan-y;
+    }
+
+    .page-image {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      background: var(--white);
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .cta,
+    .nav-button {
+      display: inline-block;
+      min-width: 140px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: var(--tecis-blue);
+      color: var(--white);
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      border: 2px solid var(--tecis-blue);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      font-family: "DM Sans", Arial, sans-serif;
+    }
+
+    .nav-button:disabled {
+      opacity: 0.38;
+      cursor: not-allowed;
+    }
+
+    .cta:hover,
+    .nav-button:hover:not(:disabled) {
+      filter: brightness(1.03);
+    }
+
+    .cta:active,
+    .nav-button:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+
+    .back-area {
+      text-align: center;
+      margin-top: 22px;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: var(--tecis-blue);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .hint {
+      text-align: center;
+      color: #667685;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 16px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .top {
+        gap: 14px;
+      }
+
+      .logo {
+        width: 82px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .viewer {
+        padding: 8px;
+        border-radius: 12px;
+      }
+
+      .controls {
+        gap: 10px;
+      }
+
+      .nav-button {
+        flex: 1 1 130px;
+        min-width: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+
+      <div class="top">
+        <div>
+          <h1>Beweisemappe</h1>
+          <p class="subtitle">
+            Beispiele und Einsparpotenziale<br>
+            übersichtlich zum Durchblättern
+          </p>
+          <div class="accent" aria-hidden="true"></div>
+        </div>
+
+        <img class="logo" src="tecis_Wort-Bild-Marke_Blau-Weiss_V2_sRGB.jpg" alt="tecis Logo">
+      </div>
+
+      <div class="viewer-header">
+        <div>Wische nach links oder rechts oder nutze die Buttons.</div>
+        <div class="counter">Seite <span id="currentPage">1</span> von <span id="totalPages">7</span></div>
+      </div>
+
+      <div class="viewer" id="viewer">
+        <img id="pageImage" class="page-image" src="beweis01.jpg" alt="Beweisemappe Seite 1">
+      </div>
+
+      <div class="controls">
+        <button class="nav-button" id="prevButton" type="button">Zurück</button>
+        <button class="nav-button" id="nextButton" type="button">Weiter</button>
+      </div>
+
+      <div class="hint">
+        Tipp: Auf dem Smartphone kannst du die Seiten auch durch Wischen wechseln.
+      </div>
+
+      <div class="back-area">
+        <a class="back-link" href="./index.html">Zurück zur Kontaktseite</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const pages = [
+      "beweis01.jpg",
+      "beweis02.jpg",
+      "beweis03.jpg",
+      "beweis04.jpg",
+      "beweis05.jpg",
+      "beweis06.jpg",
+      "beweis07.jpg"
+    ];
+
+    let currentIndex = 0;
+
+    const pageImage = document.getElementById("pageImage");
+    const currentPage = document.getElementById("currentPage");
+    const totalPages = document.getElementById("totalPages");
+    const prevButton = document.getElementById("prevButton");
+    const nextButton = document.getElementById("nextButton");
+    const viewer = document.getElementById("viewer");
+
+    totalPages.textContent = pages.length;
+
+    function updateViewer() {
+      pageImage.src = pages[currentIndex];
+      pageImage.alt = "Beweisemappe Seite " + (currentIndex + 1);
+      currentPage.textContent = currentIndex + 1;
+      prevButton.disabled = currentIndex === 0;
+      nextButton.disabled = currentIndex === pages.length - 1;
+    }
+
+    function nextPage() {
+      if (currentIndex < pages.length - 1) {
+        currentIndex += 1;
+        updateViewer();
+      }
+    }
+
+    function prevPage() {
+      if (currentIndex > 0) {
+        currentIndex -= 1;
+        updateViewer();
+      }
+    }
+
+    prevButton.addEventListener("click", prevPage);
+    nextButton.addEventListener("click", nextPage);
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "ArrowRight") {
+        nextPage();
+      }
+      if (event.key === "ArrowLeft") {
+        prevPage();
+      }
+    });
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    viewer.addEventListener("touchstart", function(event) {
+      touchStartX = event.changedTouches[0].screenX;
+    }, { passive: true });
+
+    viewer.addEventListener("touchend", function(event) {
+      touchEndX = event.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const swipeDistance = touchEndX - touchStartX;
+      const minimumSwipeDistance = 50;
+
+      if (swipeDistance < -minimumSwipeDistance) {
+        nextPage();
+      }
+
+      if (swipeDistance > minimumSwipeDistance) {
+        prevPage();
+      }
+    }
+
+    updateViewer();
+  </script>
+</body>
+</html>
